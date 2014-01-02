@@ -19,6 +19,10 @@ List.prototype.push = function(value) {
   this.tail().successor = new Node(value);
 }
 
+List.prototype.unshift = function(value) {
+  return this.head = new Node(value, this.head);
+}
+
 List.prototype.tail = function() {
   var tail
   this.each(function(node) {
@@ -67,6 +71,8 @@ console.log(list.find_all(47).length === 1);
 console.log(list.find_all(23)[0] === c);
 
 list.push(47);
+x = list.unshift('new head');
 
 console.log(list.find_all(47).length === 2);
 console.log(list.find_all(47)[0] === list.find(47));
+console.log(list.head === x);
