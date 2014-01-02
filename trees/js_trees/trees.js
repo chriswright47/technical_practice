@@ -25,15 +25,38 @@ Tree.prototype.find_node = function(node, value) {
   }
 };
 
-c = new Node(3, undefined, undefined);
-b = new Node(7, undefined, undefined);
-a = new Node(4, c, b);
+Tree.prototype.insert = function(value) {
+  this.root = this.insert_node(this.root, value);
+};
 
-tree = new Tree(a);
+Tree.prototype.insert_node = function(node, value) {
+  if (node === undefined) {
+    return new Node(value);
+  }
+  else if (value < node.value) {
+    node.left = this.insert_node(node.left, value);
+  }
+  else {
+    node.right = this.insert_node(node.right, value);
+  }
+  return node;
+}
 
-console.log(tree);
+c = new Node(3);
+b = new Node(7);
+a = new Node(4);
+a.left = c;
+a.right = b;
+
+tree = new Tree();
+tree.root = a;
+
 console.log(tree.find(4) === a);
 console.log(tree.find(3) === c);
 console.log(tree.find(7) === b);
 console.log(tree.find(5) === undefined);
 console.log(tree.find(47) === undefined);
+
+tree.insert(47);
+console.log(tree.find(47) != undefined);
+console.log(tree.find(47) === b.right);
