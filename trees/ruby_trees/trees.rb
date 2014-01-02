@@ -3,7 +3,7 @@ Node = Struct.new(:value, :left, :right)
 Tree = Struct.new(:root) do
 
   def find(value)
-    find_node(self.root, value)
+    find_node(root, value)
   end
 
   def insert(value)
