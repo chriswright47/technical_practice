@@ -3,17 +3,19 @@ Node = Struct.new(:value, :left, :right)
 Tree = Struct.new(:root) do
 
   def find(value)
-    return -1 if root.nil?
-    if root.value == value
-      return root
-    elsif root.value > value
-      #traverse left
-      Tree.new(root.left).find(value)
-    else
-      #traverse right
-      Tree.new(root.right).find(value)
-    end
+    find_node(root, value)
   end
+
+  def insert(value)
+
+  end
+
+  private
+  def find_node(node, value)
+    return node if node.nil? || value == node.value
+    value > node.value ? find_node(node.right, value) : find_node(node.left, value)
+  end
+
 
 end
 
@@ -27,4 +29,5 @@ tree = Tree.new(a)
 puts tree.find(7) == b
 puts tree.find(6) == a
 puts tree.find(3) == c
-puts tree.find(4) == -1
+puts tree.find(4) == nil
+puts tree.find(47) == nil
