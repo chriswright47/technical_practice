@@ -1,4 +1,8 @@
-Node = Struct.new(:value, :left, :right)
+Node = Struct.new(:value, :left, :right) do
+  def self.build(args)
+    self.new(args[:value], args[:left], args[:right])
+  end
+end
 
 Tree = Struct.new(:root) do
 
@@ -28,9 +32,9 @@ Tree = Struct.new(:root) do
 
 end
 
-c = Node.new(3, nil, nil)
-b = Node.new(7, nil, nil)
-a = Node.new(6, c, b)
+c = Node.build(value: 3, left: nil, right: nil)
+b = Node.build(value: 7, left: nil, right: nil)
+a = Node.build(value: 6, left: c, right: b)
 
 tree = Tree.new(a)
 
