@@ -1,5 +1,6 @@
 def n_primes(n)
   # returns an array of the first n primes
+  # this is blank for now b/c I implemented it in javascript file
 end
 
 def primes_up_to(n)

@@ -1,5 +1,5 @@
 var nPrimes = function(n) {
-  //returns a list of the first n primes
+  // returns a list of the first n primes
   if (n === 0) { return []; }
   if (n === 1) { return [2]; }
   var primes = [2];
@@ -12,7 +12,8 @@ var nPrimes = function(n) {
 }
 
 var primesUpTo = function(n) {
-  //returns a list of primes up to n
+  // returns a list of primes up to n
+  // blank b/c I implemented this in Ruby file
 }
 
 var findNextPrime = function(primes) {
