@@ -22,6 +22,8 @@ var buzz = function(number) {
   return '';
 }
 
+
+
 console.log(fizzbuzz(3) === '')
 console.log(fizzbuzz(5) === 'fizz')
 console.log(fizzbuzz(7) === 'buzz')
@@ -29,4 +31,5 @@ console.log(fizzbuzz(28) === 'buzz')
 console.log(fizzbuzz(25) === 'fizz')
 console.log(fizzbuzz(49) === 'buzz')
 console.log(fizzbuzz(35) === 'fizzbuzz')
+console.log(fizzbuzz(70) === 'fizzbuzz')
 
