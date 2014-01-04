@@ -1,8 +1,8 @@
 class Integer
   def fizzbuzz
     output = ''
-    output << self.fizz
-    output << self.buzz
+    output += self.fizz
+    output += self.buzz
   end
 
   def fizz
