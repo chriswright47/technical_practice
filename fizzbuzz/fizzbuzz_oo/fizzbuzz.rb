@@ -4,18 +4,22 @@ def assert(received, expected)
   end
 end
 
-class FizzBuzz
-  def fizzify(integer)
-    if integer % 3 == 0
-      integer % 5 == 0 ? 'FizzBuzz' : 'Fizz'
-    else
-      integer % 5 == 0 ? 'Buzz' : integer
-    end
+FizzBuzz = Struct.new(:prime1, :prime2) do
+
+  def self.build(prime1=3, prime2=5)
+    self.new(prime1, prime2)
   end
 
+  def fizzify(int)
+    if int % prime1 == 0
+      int % prime2 == 0 ? 'FizzBuzz' : 'Fizz'
+    else
+      int % prime2 == 0 ? 'Buzz' : int
+    end
+  end
 end
 
-fizzbuzz = FizzBuzz.new
+fizzbuzz = FizzBuzz.build
 assert(fizzbuzz.fizzify(1), 1)
 assert(fizzbuzz.fizzify(3), 'Fizz')
 assert(fizzbuzz.fizzify(5), 'Buzz')
