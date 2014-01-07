@@ -6,17 +6,20 @@ end
 
 class FizzBuzz
   def fizzify(integer)
-    integer % 3 == 0 ? 'Fizz' : integer
+    if integer % 3 == 0
+      integer % 5 == 0 ? 'FizzBuzz' : 'Fizz'
+    else
+      integer % 5 == 0 ? 'Buzz' : integer
+    end
   end
 
-  def buzzify(integer)
-    integer % 5 == 0 ? 'Buzz' : integer
-  end
 end
 
 fizzbuzz = FizzBuzz.new
 assert(fizzbuzz.fizzify(1), 1)
 assert(fizzbuzz.fizzify(3), 'Fizz')
+assert(fizzbuzz.fizzify(5), 'Buzz')
+assert(fizzbuzz.fizzify(15), 'FizzBuzz')
 
 
 puts "Tests are passing!"
