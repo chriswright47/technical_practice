@@ -75,3 +75,11 @@ assert(pivot.pivot_index([1,2,3,6]), -1)
 assert(pivot.pivot_index([1,2]), -1)
 assert(pivot.pivot_index([1,2,3,7,5,1]), 3)
 assert(pivot.pivot_index([1]), 0)
+
+start = Time.now
+100000.times {
+  assert(pivot.pivot_index([1,2,3,7,6]), 3)
+}
+finish = Time.now
+
+p finish - start
