@@ -13,15 +13,14 @@ var nPrimes = function(n) {
 
 var primesUpTo = function(n) {
   // returns a list of primes up to n
-  // blank b/c I implemented this in Ruby file
+  // This is implemented in Ruby filem so left blank here
 }
 
 var findNextPrime = function(primes) {
-  if (isPrime(primes, primes.last())) {
-    return primes.last();
+  x = primes.last() + 2;
+  while (!isPrime(primes, x)) {
+    x += 2;
   }
-  x = primes.last()
-  while (!isPrime(primes, x)) {x++;x++}
   return x;
 }
 
