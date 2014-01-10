@@ -54,8 +54,11 @@ class Deck
 end
 
 deck = Deck.build
-puts deck
 
-card = deck.cards.sample
-puts card
-puts card.value
+puts deck.cards.size == 52
+puts deck.cards.select {|card| card.name == '3'}.size == 4
+puts deck.cards.select {|card| card.name == 'king'}.size == 4
+puts deck.cards.select {|card| card.suit == 'spades'}.size == 13
+puts deck.cards.select {|card| card.value == 10}.size == 16
+puts deck.cards.select {|card| card.value < 10}.size == 36
+
