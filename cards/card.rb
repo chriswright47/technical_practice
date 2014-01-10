@@ -6,11 +6,56 @@ Card = Struct.new(:name, :suit) do
     self.new(args[:name], args[:suit])
   end
 
+  def value
+    case
+    when name == 'ace'
+      1
+    when name.to_i == 0
+      10
+    else
+      name.to_i
+    end
+  end
+
   def to_s
     "#{name} of #{suit}"
   end
 end
 
-king_h = Card.build(suit: 'hearts', name: 'king')
-puts king_h
+class Deck
+  attr_reader :cards
+  def initialize(cards)
+    @cards = cards
+  end
 
+  def self.build
+    cards = []
+    4.times do |i|
+      13.times do |j|
+        cards << Card.build(suit: suits[i], name: names[j])
+      end
+    end
+    self.new(cards)
+  end
+
+  def to_s
+    cards.each {|card| puts card}
+  end
+
+  private
+  def self.suits
+    %w[hearts spades clubs diamonds]
+  end
+
+  def self.names
+    %w[2 3 4 5 6 7 8 9 10 jack queen king ace]
+  end
+
+end
+
+deck = Deck.build
+puts deck
+
+card = deck.cards.sample
+puts card
+puts card.value
