@@ -9,3 +9,11 @@ win is assigned to the person with the most pieces.
 Implement the object oriented design for Othello.
 =end
 
+require_relative 'piece'
+require_relative 'game'
+
+game = Game.build
+game.board[2][3] = Piece.new('black')
+game.board[4][3] = Piece.new('black')
+game.board[3][3] = Piece.new('white')
+puts game
