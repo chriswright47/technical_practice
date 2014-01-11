@@ -16,4 +16,10 @@ game = Game.build
 game.board[2][3] = Piece.new('black')
 game.board[4][3] = Piece.new('black')
 game.board[3][3] = Piece.new('white')
+game.board[8][4] = Piece.new('white')
+game.board[8][5] = Piece.new('black')
+game.board[8][6] = Piece.new('white')
+puts game
+
+game.switch_colors
 puts game

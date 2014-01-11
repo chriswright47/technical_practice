@@ -8,13 +8,10 @@ Game = Struct.new(:board) do
     self.board.each_with_index do |row, i|
       row.each_with_index do |piece, j|
         if piece
-          if new_color = surrounding_color_(i,j)
-            piece.color = new_color
-          end
+          piece.color = surrounding_color(i,j) || piece.color
         end
       end
     end
-
   end
 
   def to_s
@@ -35,6 +32,29 @@ Game = Struct.new(:board) do
       puts '  -----------------------------------------' if i < 9
     end
     return ''
+  end
+
+  private
+  def surrounding_color(i,j)
+    if vertical_surround?(i,j)
+      return self.board[i+1][j].color
+    elsif horizontal_surround?(i,j)
+      return self.board[i][j+1].color
+    else
+      nil
+    end
+  end
+
+  def vertical_surround?(i,j)
+    if (1..8).to_a.include?(i) && (board[i-1][j] && board[i+1][j])
+      board[i-1][j].color == board[i+1][j].color
+    end
+  end
+
+  def horizontal_surround?(i,j)
+    if (1..8).to_a.include?(j) && (board[i][j-1] && board[i][j+1])
+      board[i][j-1].color == board[i][j+1].color
+    end
   end
 
 end
