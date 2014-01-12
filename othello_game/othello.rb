@@ -13,6 +13,15 @@ require_relative 'piece'
 require_relative 'game'
 
 game = Game.build
+
+until game.finished?
+  puts "Row:"
+  row = gets.chomp.to_i
+  puts "Column:"
+  column = gets.chomp.to_i
+  game.board[row][column] = Piece.new('black')
+  puts game
+end
 game.board[2][3] = Piece.new('black')
 game.board[4][3] = Piece.new('black')
 game.board[3][3] = Piece.new('white')

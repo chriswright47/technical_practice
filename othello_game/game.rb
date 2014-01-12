@@ -4,6 +4,9 @@ Game = Struct.new(:board) do
     self.new(board)
   end
 
+  def finished?
+  end
+
   def switch_colors
     self.board.each_with_index do |row, i|
       row.each_with_index do |piece, j|
