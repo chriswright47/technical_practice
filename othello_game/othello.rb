@@ -11,10 +11,10 @@ Implement the object oriented design for Othello.
 
 require_relative 'piece'
 require_relative 'game'
+
 def white_turn?()
   @turn_count % 2 == 0
 end
-
 
 game = Game.build
 @turn_count = 0
@@ -30,13 +30,3 @@ until game.finished?
   @turn_count += 1
   puts game
 end
-game.board[2][3] = Piece.new('black')
-game.board[4][3] = Piece.new('black')
-game.board[3][3] = Piece.new('white')
-game.board[8][4] = Piece.new('white')
-game.board[8][5] = Piece.new('black')
-game.board[8][6] = Piece.new('white')
-puts game
-
-game.switch_colors
-puts game
