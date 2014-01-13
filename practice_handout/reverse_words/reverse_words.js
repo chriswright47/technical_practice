@@ -8,7 +8,11 @@ var easy_reverse_words = function(string) {
 console.log(easy_reverse_words('this is a test') === 'test a is this');
 
 var reverse_words = function(string) {
-  var reversed = reverse_chars(string);
+  var reversed = reverse_chars(string).split(' ');
+  for (var i in reversed) {
+    reversed[i] = reverse_chars(reversed[i]);
+  }
+  return reversed.join(' ');
 }
 
 var reverse_chars = function(string) {
@@ -20,3 +24,4 @@ var reverse_chars = function(string) {
 }
 
 console.log(reverse_chars('testing chars')==='srahc gnitset')
+console.log(reverse_words('this is a test') === 'test a is this');
