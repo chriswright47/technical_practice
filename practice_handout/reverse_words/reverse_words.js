@@ -6,3 +6,17 @@ var easy_reverse_words = function(string) {
 }
 
 console.log(easy_reverse_words('this is a test') === 'test a is this');
+
+var reverse_words = function(string) {
+  var reversed = reverse_chars(string);
+}
+
+var reverse_chars = function(string) {
+  var reversed_chars = '';
+  for (var i in string) {
+    reversed_chars += string[string.length-i-1];
+  }
+  return reversed_chars;
+}
+
+console.log(reverse_chars('testing chars')==='srahc gnitset')
