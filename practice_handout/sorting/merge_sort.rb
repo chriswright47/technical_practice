@@ -14,31 +14,32 @@ def merge(a,b)
   end
   merged_array << a
   merged_array << b
-  return merged_array.flatten
+  merged_array.flatten
 end
 
-def bubble_sort(array)
-  # this is simpler code, but scales worse
+def other_sort(array)
   array.sort {|a,b| a <=> b}
 end
 
 
+
+# Driver code
 puts (merge_sort([1,2,3,4]) == [1,2,3,4])
 puts (merge_sort([3,4,2,1]) == [1,2,3,4])
+puts (merge_sort([3,4,2,2,2,1]) == [1,2,2,2,3,4])
 shuffled_array = (1..100).to_a.shuffle
 start = Time.now
 puts (merge_sort(shuffled_array) == (1..100).to_a)
-puts "100 numbers takes #{Time.now - start} with merge sort"
-long_shuffled = (1..10000).to_a.shuffle
+puts "100 numbers takes #{Time.now - start} with merge sort").to_a.shuffle
 start = Time.now
-puts (merge_sort(long_shuffled) == (1..1000000).to_a)
-puts "1000000 numbers takes #{Time.now - start} with merge sort"
+puts (merge_sort(long_shuffled) == (1..100000).to_a)
+puts "100000 numbers takes #{Time.now - start} with merge sort"
 
 start = Time.now
 puts (bubble_sort(shuffled_array) == (1..100).to_a)
 puts "100 numbers takes #{Time.now - start} with bubble sort"
-long_shuffled = (1..1000000).to_a.shuffle
+long_shuffled = (1..100000).to_a.shuffle
 start = Time.now
-puts (bubble_sort(long_shuffled) == (1..1000000).to_a)
-puts "10000 numbers takes #{Time.now - start} with bubble sort"
+puts (bubble_sort(long_shuffled) == (1..100000).to_a)
+puts "100000 numbers takes #{Time.now - start} with bubble sort"
 
