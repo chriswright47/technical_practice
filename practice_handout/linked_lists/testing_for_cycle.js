@@ -21,7 +21,7 @@ List.prototype.cyclic = function() {
 }
 
 c = new Node(47)
-b = new Node(23, c)
+b = new Node(23,. c)
 a = new Node(1, b)
 c.successor = a
 
