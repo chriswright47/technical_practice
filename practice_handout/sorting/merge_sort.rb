@@ -4,7 +4,7 @@ def merge_sort(array)
   middle = array.length / 2
   first_half = merge_sort(array[0..middle-1])
   second_half = merge_sort(array[middle..-1])
-  return merge(first_half,second_half)
+  merge(first_half,second_half)
 end
 
 def merge(a,b)
@@ -17,6 +17,10 @@ def merge(a,b)
   return merged_array.flatten
 end
 
+def bubble_sort(array)
+  # this is simpler code, but scales worse
+  array.sort {|a,b| a <=> b}
+end
 
 
 puts (merge_sort([1,2,3,4]) == [1,2,3,4])
@@ -24,8 +28,17 @@ puts (merge_sort([3,4,2,1]) == [1,2,3,4])
 shuffled_array = (1..100).to_a.shuffle
 start = Time.now
 puts (merge_sort(shuffled_array) == (1..100).to_a)
-puts "100 numbers takes #{Time.now - start}"
+puts "100 numbers takes #{Time.now - start} with merge sort"
 long_shuffled = (1..10000).to_a.shuffle
 start = Time.now
-puts (merge_sort(long_shuffled) == (1..10000).to_a)
-puts "10000 numbers takes #{Time.now - start}"
+puts (merge_sort(long_shuffled) == (1..1000000).to_a)
+puts "1000000 numbers takes #{Time.now - start} with merge sort"
+
+start = Time.now
+puts (bubble_sort(shuffled_array) == (1..100).to_a)
+puts "100 numbers takes #{Time.now - start} with bubble sort"
+long_shuffled = (1..1000000).to_a.shuffle
+start = Time.now
+puts (bubble_sort(long_shuffled) == (1..1000000).to_a)
+puts "10000 numbers takes #{Time.now - start} with bubble sort"
+
