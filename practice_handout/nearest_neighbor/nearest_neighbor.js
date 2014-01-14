@@ -7,6 +7,24 @@
 // Answer: sort the people by position numbers, then you only
 // have to check the three people before and after a person.
 
+var min = function(x,y) {
+  if (x < y) {return x}
+  return y;
+}
+
+var max = function(x,y) {
+  if (x > y) {return x}
+  return y;
+}
+
+var Person = function(name, position) {
+  this.name = name;
+  this.position = position;
+  this.neighbors;
+}
+
+
+
 var mergeSort = function(array) {
   if (array.length <= 1) {return array}
   var mid = Math.floor(array.length / 2);
@@ -45,3 +63,13 @@ Array.prototype.eq = function(otherArray) {
 }
 
 console.log(mergeSort([1,4,3,2,5,3,1,1,7]).eq([1,1,1,2,3,3,4,5,7]));
+
+
+a = new Person('Chris', 3)
+b = new Person('Ross', 4)
+c = new Person('Rachel', 3)
+d = new Person('Matt', 10)
+e = new Person('Julie', 7)
+f = new Person('Sam', 8)
+
+people = [a,b,c,d,e,f];
