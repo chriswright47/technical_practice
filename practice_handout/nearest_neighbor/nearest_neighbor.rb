@@ -53,3 +53,4 @@ neighborhood = Neighborhood.new([a,b,c,d,e,f,g])
 p a.neighbors.empty?
 neighborhood.populateNeighbors
 p a.neighbors == [c,f,d]
+p e.neighbors == [g,b,c]
