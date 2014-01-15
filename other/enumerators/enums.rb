@@ -13,9 +13,10 @@ class Fibonacci
 
   public
   def next_n_nums(n)
-    # this puts the next n nums,
-    # does not return them
-    n.times {puts fibonacci_number.next}
+    # returns next n number in array
+    result = []
+    n.times {result << fibonacci_number.next}
+    result
   end
 
   def first_n_nums(n)
@@ -28,10 +29,10 @@ end
 fibonacci_sequence = Fibonacci.new
 
 # this will print the first ten numbers
-fibonacci_sequence.next_n_nums(10)
+p fibonacci_sequence.next_n_nums(10)
 
 # and this will print the next ten
-fibonacci_sequence.next_n_nums(10)
+p fibonacci_sequence.next_n_nums(10)
 
 # this will p an array of the first 5
 p fibonacci_sequence.first_n_nums(5)
