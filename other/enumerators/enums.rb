@@ -1,6 +1,7 @@
 class Fibonacci
   private
   attr_reader :fibonacci_number
+
   def initialize
     @fibonacci_number = Enumerator.new do |yielder|
       i, j = 0, 1
@@ -23,17 +24,16 @@ class Fibonacci
     # returns the first n nums in an array
     fibonacci_number.first(5)
   end
-
 end
 
 fibonacci_sequence = Fibonacci.new
 
-# this will print the first ten numbers
+# this will print an array of the first ten numbers
 p fibonacci_sequence.next_n_nums(10)
 
-# and this will print the next ten
+# and this will print an array of the next ten
 p fibonacci_sequence.next_n_nums(10)
 
-# this will p an array of the first 5
+# this will print an array of the first five
 p fibonacci_sequence.first_n_nums(5)
 
