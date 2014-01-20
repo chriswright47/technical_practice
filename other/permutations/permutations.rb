@@ -1,0 +1,4 @@
+def permutations(string)
+
+
+end
