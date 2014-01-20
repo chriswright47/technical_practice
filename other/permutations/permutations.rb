@@ -1,4 +1,3 @@
 def permutations(string)
 
-
 end
