@@ -1,6 +1,6 @@
 def get_permutations(string)
-  # base case
   return [''] if string.length == 0
+
   first = string[0]
   remainder = string.slice(1..-1)
   words = get_permutations(remainder)
@@ -16,6 +16,7 @@ end
 def insert_char_at(char, word, index)
   word.dup.insert(index, char)
 end
+
 
 p get_permutations('a') == ['a']
 p get_permutations('ab') == ['ab','ba']
