@@ -28,12 +28,7 @@ end
 
 fibonacci_sequence = Fibonacci.new
 
-# this will print an array of the first ten numbers
-p fibonacci_sequence.next_n_nums(10)
-
-# and this will print an array of the next ten
-p fibonacci_sequence.next_n_nums(10)
-
-# this will print an array of the first five
-p fibonacci_sequence.first_n_nums(5)
+p fibonacci_sequence.next_n_nums(10) #=> [1,1,2,3,5,8,13,21,34,55]
+p fibonacci_sequence.next_n_nums(10) #=> [89,144,233,377,610,987,1597,2584,4181,6765]
+p fibonacci_sequence.first_n_nums(5) #=> [1,1,2,3,5]
 
