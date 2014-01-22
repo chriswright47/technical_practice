@@ -1,10 +1,22 @@
-def permutations(string)
-  return string if string.length <= 1
-
-
+def get_permutations(string)
+  # base case
+  return [''] if string.length == 0
+  first = string[0]
+  remainder = string.slice(1..-1)
+  words = get_permutations(remainder)
+  permutations = []
+  words.each do |word|
+    (word.length + 1).times do |i|
+      permutations.push(insert_char_at(first, word, i))
+    end
+  end
+  permutations
 end
 
+def insert_char_at(char, word, index)
+  word.dup.insert(index, char)
+end
 
-puts permutations('a') == 'a'
-puts permutations('ab') == ['ab','ba']
-puts permutations('abc') == ['abc','acb','bac','bca','cab','cba']
+p get_permutations('a') == ['a']
+p get_permutations('ab') == ['ab','ba']
+p get_permutations('abc') == ['abc','bac','bca','acb','cab','cba']
