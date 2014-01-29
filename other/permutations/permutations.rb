@@ -20,4 +20,4 @@ end
 
 p get_permutations('a') == ['a']
 p get_permutations('ab') == ['ab','ba']
-p get_permutations('abc') == ['abc','bac','bca','acb','cab','cba']
+p get_permutations('abc').sort == ['abc','bac','bca','acb','cab','cba'].sort
