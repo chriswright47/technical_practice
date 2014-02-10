@@ -9,7 +9,7 @@ var nthFibonacci = function(n) {
 
 var fibonacciFirstN = function(n) {
   var results = [];
-  var i = 1
+  var i = 1;
   while (results.length < n) {
     results.push(nthFibonacci(i));
     i++;
