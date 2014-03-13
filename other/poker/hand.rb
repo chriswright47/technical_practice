@@ -100,11 +100,9 @@ class Hand
   end
 
   def count_values
-    result = Hash.new(0)
-    values.each do |value|
-      result[value] += 1
-    end
-    result
+    counts = Hash.new(0)
+    values.each {|value| counts[value] += 1}
+    counts
   end
 
 end
