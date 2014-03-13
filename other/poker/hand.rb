@@ -2,10 +2,9 @@ class Hand
   attr_reader :cards
 
   def rank
-    POSSIBLE_RANKS.each do |title|
-      return title.to_s.gsub('_', ' ') if send(title.to_sym)
+    POSSIBLE_RANKS.each do |name|
+      return name.to_s.gsub('_', ' ') if send(name.to_sym)
     end
-    'high card'
   end
 
 
@@ -23,7 +22,8 @@ class Hand
                     :straight,
                     :three_of_a_kind,
                     :two_pair,
-                    :pair
+                    :pair,
+                    :high_card
                    ]
 
   def royal_flush
@@ -60,6 +60,10 @@ class Hand
 
   def pair
     value_frequencies.values.include?(2)
+  end
+
+  def high_card
+    true
   end
 
   def flush?
