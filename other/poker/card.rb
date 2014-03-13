@@ -5,7 +5,7 @@ class Card
 
   attr_reader :value, :suit, :name
   def initialize(name, suit)
-    @value = NAMES_TO_VALUES[name] || name.to_i
+    @value = NAMES_TO_VALUES.fetch(name, name.to_i)
     @suit = suit
     @name = name
   end
